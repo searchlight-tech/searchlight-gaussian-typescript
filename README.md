@@ -11,6 +11,8 @@ A Typescript model of the [Normal](http://en.wikipedia.org/wiki/Normal_distribut
 import { Gaussian } from "gaussian";
 const distribution = new Gaussian(mean, variance);
 const cdf = distribution.cdf(25);
+
+cdf.add(new Gaussian(1,2))
 ```
 
 ### Properties
@@ -28,14 +30,19 @@ const cdf = distribution.cdf(25);
 - `ppf(x)`: the percent point function, the inverse of _cdf_
 
 ### Combination Functions
-- `mul(d)`: returns the product distribution of this and the given distribution;
-- `div(d)`: returns the quotient distribution of this and the given distribution;
-- `mul_constant(d)`: returns `scale(d)`; equivalent to calling `mul(d: number)`
-- `div_constant(d)`: returns `scale(1/d)`; equivalent to calling `div(d: number)`
-- `add(d)`: returns the result of adding this and the given distribution's means and variances
-- `sub(d)`: returns the result of subtracting this and the given distribution's means and variances
-- `scale(c)`: returns the result of scaling this distribution by the given constant
+- `mul(d)`: updates the product distribution of this and the given distribution;
+- `div(d)`: updates the quotient distribution of this and the given distribution;
+- `mul_constant(d)`: updates `scale(d)`; equivalent to calling `mul(d: number)`
+- `div_constant(d)`: updates `scale(1/d)`; equivalent to calling `div(d: number)`
+- `add(d)`: updates the result of adding this and the given distribution's means and variances
+- `sub(d)`: updates the result of subtracting this and the given distribution's means and variances
+- `scale(c)`: updates the result of scaling this distribution by the given constant
 
+
+### Differences with the original gaussian package
+The original package while great creates a new Gaussian object on every combination function.
+One slight optimization in this library is that rather than creating a new Gaussian object 
+on every call, we will update our Gaussian's objects instance variables.
 
 ### Forked From
 

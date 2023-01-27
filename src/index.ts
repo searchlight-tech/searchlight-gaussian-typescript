@@ -73,8 +73,10 @@ export class Gaussian {
 
     return z0 * std + mean;
   }
-  static fromPrecisionMean(precision: number, precisionmean: number) {
-    return new Gaussian(precisionmean / precision, 1 / precision);
+  fromPrecisionMean(precision: number, precisionmean: number) {
+    this.mean = precisionmean / precision
+    this.variance = 1 / precision
+    this.standardDeviation = Math.sqrt(this.variance);
   }
 
   pdf(x: number) {
@@ -106,47 +108,44 @@ export class Gaussian {
   mul(d: Gaussian) {
     var precision = 1 / this.variance;
     var dprecision = 1 / d.variance;
-    return Gaussian.fromPrecisionMean(
+    this.fromPrecisionMean(
       precision + dprecision,
       precision * this.mean + dprecision * d.mean
     );
   }
   mul_constant(d: number) {
-    return this.scale(d);
+    this.scale(d);
   }
   // Quotient distribution of this and d (scale for constant)
-  div(d: Gaussian | number) {
-    if (typeof d === "number") {
-      return this.scale(1 / d);
-    }
+  div(d: Gaussian) {
     var precision = 1 / this.variance;
     var dprecision = 1 / d.variance;
-    return Gaussian.fromPrecisionMean(
+    this.fromPrecisionMean(
       precision - dprecision,
       precision * this.mean - dprecision * d.mean
     );
   }
   div_constant(d: number) {
-    return this.scale(1 / d);
+    this.scale(1 / d);
   }
 
   // Addition of this and d
-  add(d: Gaussian): Gaussian {
+  add(d: Gaussian) {
     this.mean += d.mean;
     this.variance += d.variance;
-    return this;
+    this.standardDeviation = Math.sqrt(this.variance);
   }
 
   // Subtraction of this and d
-  sub(d: Gaussian): Gaussian {
+  sub(d: Gaussian) {
     this.mean -= d.mean;
     this.variance += d.variance;
-    return this;
+    this.standardDeviation = Math.sqrt(this.variance);
   }
   // Scale this by constant c
   scale(c: number) {
-    this.mean * c;
-    this.variance * c ** 2;
-    return this;
+    this.mean = this.mean * c;
+    this.variance = this.variance * c * c;
+    this.standardDeviation = Math.sqrt(this.variance);
   }
 }

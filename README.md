@@ -28,7 +28,15 @@ const cdf = distribution.cdf(25);
 - `ppf(x)`: the percent point function, the inverse of _cdf_
 
 ### Combination Functions
-
+- `mul(d)`: returns the product distribution of this and the given distribution;
+- `div(d)`: returns the quotient distribution of this and the given distribution;
+- `mul_constant(d)`: returns `scale(d)`; equivalent to calling `mul(d: number)`
+- `div_constant(d)`: returns `scale(1/d)`; equivalent to calling `div(d: number)`
 - `add(d)`: returns the result of adding this and the given distribution's means and variances
 - `sub(d)`: returns the result of subtracting this and the given distribution's means and variances
 - `scale(c)`: returns the result of scaling this distribution by the given constant
+
+
+### Forked From
+
+__Source__: https://github.com/errcw/gaussian  

@@ -1,4 +1,4 @@
-[![Tests](https://github.com/searchlight-tech/-searchlight-gaussian-typescript/workflows/tests/badge.svg)](https://github.com/searchlight-tech/-searchlight-gaussian-typescript/actions/workflows/tests.yml)
+[![Tests](https://github.com/searchlight-tech/-searchlight-gaussian-typescript/workflows/test/badge.svg)](https://github.com/searchlight-tech/-searchlight-gaussian-typescript/actions/workflows/test.yml)
 
 # gaussian-ts
 

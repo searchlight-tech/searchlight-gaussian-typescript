@@ -1,0 +1,20 @@
+{
+  "name": "gaussian-typescript",
+  "version": "1.0.0",
+  "description": "A TypeScript model of a Gaussian distribution",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "prepare": "npm run build"
+  },
+  "keywords": [
+    "gaussian",
+    "typescript",
+    "gaussian typescript"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^4.9.4"
+  }
+}

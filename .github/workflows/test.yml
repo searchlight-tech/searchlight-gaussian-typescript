@@ -1,4 +1,4 @@
-name: CI tests
+name: tests
 
 on: push
 
@@ -10,7 +10,6 @@ jobs:
       matrix:
         node-version:
           - 14.x # maintainence ends 2023-04-30
-          - 14.x
           - 16.x
           - 18.x
     steps:

@@ -1,3 +1,5 @@
+[![Tests](https://github.com/searchlight-tech/-searchlight-gaussian-typescript/workflows/tests/badge.svg)](https://github.com/searchlight-tech/-searchlight-gaussian-typescript/actions/workflows/tests.yml)
+
 # gaussian-ts
 
 A Typescript model of the [Normal](http://en.wikipedia.org/wiki/Normal_distribution)

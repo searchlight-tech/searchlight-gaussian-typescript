@@ -10,7 +10,7 @@ A Typescript model of the [Normal](http://en.wikipedia.org/wiki/Normal_distribut
 ### Creating a Distribution
 
 ```typescript
-import { Gaussian } from "gaussian";
+import { Gaussian } from "@searchlight.ai/gaussian-typescript";
 const distribution = new Gaussian(mean, variance);
 const cdf = distribution.cdf(25);
 

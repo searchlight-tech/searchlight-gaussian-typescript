@@ -2,7 +2,7 @@
   "name": "@searchlight/gaussian-typescript",
   "version": "1.0.0",
   "description": "A TypeScript model of a Gaussian distribution",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
     "prepare": "npm run build",
@@ -24,5 +24,8 @@
     "type": "git",
     "url": "git://github.com/searchlight-tech/-searchlight-gaussian-typescript.git"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "files": ["dist", "LICENSE", "README.md", "package.json"]
 }
